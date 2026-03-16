@@ -128,19 +128,12 @@
 
     ul { padding-left: 18px; }
 
-    .assets-note code,
-    .media-path code {
-      word-break: break-all;
-      font-family: Consolas, "Courier New", monospace;
-      color: var(--primary);
-    }
-
-    .assets-note ul { margin-top: 10px; }
-
     .media-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 18px;
+      max-width: 920px;
+      margin: 0 auto;
     }
 
     .media-card {
@@ -191,15 +184,8 @@
       display: none;
     }
 
-    .media-path {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
     @media (max-width: 900px) {
-      .grid,
-      .media-grid {
+      .grid {
         grid-template-columns: 1fr;
       }
 
@@ -253,16 +239,6 @@
         </article>
       </section>
 
-      <section class="panel assets-note section">
-        <h2>素材路径</h2>
-        <p>把项目视频和图片放到下面这些路径即可，页面会自动尝试加载；如果文件还没放，页面会保留占位提示。</p>
-        <ul>
-          <li><code>assets/projects/spherical-motor/video/demo.mp4</code></li>
-          <li><code>assets/projects/spherical-motor/images/figure-1.jpg</code></li>
-          <li><code>assets/projects/spherical-motor/images/figure-2.jpg</code></li>
-        </ul>
-      </section>
-
       <section class="media-grid section">
         <article class="media-card">
           <h2>项目视频</h2>
@@ -270,7 +246,6 @@
             <video id="project-video" controls preload="metadata" playsinline hidden></video>
             <div class="media-empty" id="project-video-empty">视频接口已预留。建议放电机实验演示、闭环轨迹跟踪或控制效果视频。</div>
           </div>
-          <p class="media-path">路径：<code id="project-video-path"></code></p>
         </article>
 
         <article class="media-card">
@@ -279,7 +254,6 @@
             <img id="project-image-1" alt="Spherical motor figure 1" hidden>
             <div class="media-empty" id="project-image-1-empty">图片接口已预留。建议放电机结构图、磁路布局图或感知框架图。</div>
           </div>
-          <p class="media-path">路径：<code id="project-image-1-path"></code></p>
         </article>
 
         <article class="media-card">
@@ -288,7 +262,6 @@
             <img id="project-image-2" alt="Spherical motor figure 2" hidden>
             <div class="media-empty" id="project-image-2-empty">图片接口已预留。建议放实验平台、姿态估计结果图或轨迹跟踪结果图。</div>
           </div>
-          <p class="media-path">路径：<code id="project-image-2-path"></code></p>
         </article>
       </section>
     </div>
@@ -297,15 +270,13 @@
   <script>
     const mediaAssets = {
       video: "../assets/projects/spherical-motor/video/demo.mp4",
-      image1: "../assets/projects/spherical-motor/images/figure-1.jpg",
-      image2: "../assets/projects/spherical-motor/images/figure-2.jpg"
+      image1: "../assets/projects/spherical-motor/images/figure-1.png",
+      image2: "../assets/projects/spherical-motor/images/figure-2.png"
     };
 
-    function bindImage(imgId, emptyId, pathId, src) {
+    function bindImage(imgId, emptyId, src) {
       const img = document.getElementById(imgId);
       const empty = document.getElementById(emptyId);
-      const path = document.getElementById(pathId);
-      path.textContent = src.replace("../", "");
       img.onload = () => {
         img.hidden = false;
         empty.hidden = true;
@@ -317,11 +288,9 @@
       img.src = src;
     }
 
-    function bindVideo(videoId, emptyId, pathId, src) {
+    function bindVideo(videoId, emptyId, src) {
       const video = document.getElementById(videoId);
       const empty = document.getElementById(emptyId);
-      const path = document.getElementById(pathId);
-      path.textContent = src.replace("../", "");
       video.onloadeddata = () => {
         video.hidden = false;
         empty.hidden = true;
@@ -334,9 +303,9 @@
       video.load();
     }
 
-    bindVideo("project-video", "project-video-empty", "project-video-path", mediaAssets.video);
-    bindImage("project-image-1", "project-image-1-empty", "project-image-1-path", mediaAssets.image1);
-    bindImage("project-image-2", "project-image-2-empty", "project-image-2-path", mediaAssets.image2);
+    bindVideo("project-video", "project-video-empty", mediaAssets.video);
+    bindImage("project-image-1", "project-image-1-empty", mediaAssets.image1);
+    bindImage("project-image-2", "project-image-2-empty", mediaAssets.image2);
   </script>
 </body>
 </html>
