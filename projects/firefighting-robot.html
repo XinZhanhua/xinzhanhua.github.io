@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>密闭空间爆燃事故瞬态灭火系统 / 智能消防机器人</title>
+  <style>
+    :root {
+      --bg: #f4f0e8;
+      --surface: rgba(255, 255, 255, 0.82);
+      --text: #1b2744;
+      --muted: #58657e;
+      --primary: #2455ff;
+      --secondary: #0ea5a3;
+      --accent: #15435f;
+      --border: rgba(27, 39, 68, 0.1);
+      --shadow: 0 24px 60px rgba(31, 54, 112, 0.12);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(36, 85, 255, 0.1), transparent 24%),
+        radial-gradient(circle at 78% 20%, rgba(14, 165, 163, 0.12), transparent 18%),
+        var(--bg);
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
+    .page { padding: 32px 0 56px; }
+
+    .back-link,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .hero {
+      margin-top: 22px;
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(236, 247, 246, 0.9));
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(21, 67, 95, 0.1);
+      color: var(--accent);
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button.primary {
+      color: #ffffff;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--secondary));
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .panel {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2 {
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    ul { padding-left: 18px; }
+    .section { margin-top: 20px; }
+
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+      <a class="back-link" href="../index.html">← 返回主页</a>
+
+      <section class="hero">
+        <span class="eyebrow">Project 03</span>
+        <h1>密闭空间爆燃事故瞬态灭火系统 / 智能消防机器人</h1>
+        <p class="lead">这一方向聚焦复杂环境下的机器人任务执行与消防场景系统集成，涵盖智能消防机器人方案、悬挂式平台实践，以及密闭空间瞬态灭火系统相关的工程问题。</p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="../简历文件/CV_xzh-202603.pdf" target="_blank" rel="noreferrer noopener">查看 CV</a>
+          <a class="button" href="mailto:xinzhanhua@stu.pku.edu.cn">联系我</a>
+        </div>
+      </section>
+
+      <section class="grid section">
+        <article class="panel">
+          <h2>项目定位</h2>
+          <ul>
+            <li>面向复杂与高风险环境的消防任务执行</li>
+            <li>关注系统级方案而不只是单点算法</li>
+            <li>兼顾机械、电控、感知与任务流程设计</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>个人角色</h2>
+          <ul>
+            <li>承担项目总负责人或核心技术负责人角色</li>
+            <li>推进机器人系统集成、方案迭代与任务验证</li>
+            <li>把竞赛实践与真实工程问题连接起来</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>后续补充建议</h2>
+          <p>这一页适合继续补充系统结构图、实物照片、竞赛成果、奖项信息、项目视频以及更细的职责拆分说明。</p>
+        </article>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

@@ -306,27 +306,102 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 22px;
-      max-width: 980px;
+      gap: 24px;
+      max-width: 920px;
+    }
+
+    .hero-avatar {
+      position: relative;
+      width: 132px;
+      height: 132px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      padding: 7px;
+      background: linear-gradient(135deg, rgba(31, 94, 255, 0.18), rgba(12, 155, 144, 0.18));
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-avatar::before {
+      content: "";
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 1px dashed rgba(31, 94, 255, 0.22);
+    }
+
+    .hero-avatar-img,
+    .hero-avatar-fallback {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .hero-avatar-img {
+      display: block;
+      object-fit: cover;
+      background: color-mix(in srgb, var(--surface) 90%, transparent);
+    }
+
+    .hero-avatar-img[hidden] {
+      display: none;
+    }
+
+    .hero-avatar-fallback {
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.24), transparent 42%),
+        linear-gradient(160deg, #19346b 0%, #2d64ff 48%, #7ab6ff 100%);
+      color: #ffffff;
+      font-family: var(--heading-font);
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-avatar-fallback[hidden] {
+      display: none;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 24px;
     }
 
     .hero-title {
-      max-width: 960px;
+      margin: 0;
+      max-width: 780px;
       font-family: var(--heading-font);
-      font-size: clamp(2.8rem, 6vw, 5.2rem);
-      line-height: 1.16;
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      line-height: 1.04;
       letter-spacing: -0.04em;
-      padding-bottom: 0.14em;
       background: linear-gradient(135deg, var(--text) 0%, var(--primary) 70%, var(--secondary) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
+    .hero-title-line {
+      display: block;
+    }
+
+    .hero-title-line + .hero-title-line {
+      margin-top: 10px;
+    }
+
     .hero-subtitle {
+      display: grid;
+      gap: 18px;
+      justify-items: center;
       max-width: 760px;
-      font-size: 1.12rem;
-      line-height: 1.95;
+    }
+
+    .hero-subtitle-line {
+      margin: 0;
+      max-width: 760px;
+      font-size: 1.08rem;
+      line-height: 1.85;
       color: var(--muted-strong);
     }
 
@@ -648,10 +723,26 @@
         padding: 84px 0 56px;
       }
 
+      .hero-avatar {
+        width: 112px;
+        height: 112px;
+      }
+
+      .hero-copy {
+        gap: 18px;
+      }
+
       .hero-title {
-        font-size: clamp(2.5rem, 12vw, 4rem);
-        line-height: 1.18;
-        padding-bottom: 0.1em;
+        font-size: clamp(2.3rem, 11vw, 3.6rem);
+        line-height: 1.06;
+      }
+
+      .hero-subtitle {
+        gap: 14px;
+      }
+
+      .hero-subtitle-line {
+        font-size: 1rem;
       }
 
       .cards-grid,
@@ -663,6 +754,16 @@
     @media (max-width: 520px) {
       .container {
         width: min(calc(100% - 20px), var(--container));
+      }
+
+      .hero-avatar {
+        width: 96px;
+        height: 96px;
+        padding: 6px;
+      }
+
+      .hero-avatar-fallback {
+        font-size: 1.7rem;
       }
 
       .contact-item {
@@ -710,8 +811,18 @@
   <main>
     <section class="hero" id="hero">
       <div class="container hero-inner">
-        <h1 class="hero-title" id="hero-title">你好，我是XinZ</h1>
-        <p class="hero-subtitle" id="hero-subtitle"></p>
+        <div class="hero-avatar">
+          <img class="hero-avatar-img" id="hero-avatar-img" alt="XinZ avatar" hidden>
+          <div class="hero-avatar-fallback" id="hero-avatar-fallback">X</div>
+        </div>
+
+        <div class="hero-copy">
+          <h1 class="hero-title" id="hero-title">
+            <span class="hero-title-line">你好，</span>
+            <span class="hero-title-line">我是XinZ</span>
+          </h1>
+          <div class="hero-subtitle" id="hero-subtitle"></div>
+        </div>
       </div>
     </section>
 
@@ -754,8 +865,15 @@
           contact: "联系方式"
         },
         hero: {
-          title: "你好，我是XinZ",
-          subtitle: "PKU在读博士，擅长机器人全栈开发。邮箱：xinzhanhua@stu.pku.edu.cn"
+          avatar: "assets/avatar/profile.png",
+          avatarFallback: "X",
+          titleLines: ["你好，", "我是XinZ"],
+          subtitleLines: [
+            "PKU在读博士",
+            "本科毕业于BIT徐特立学院",
+            "擅长机器人全栈开发",
+            "邮箱：xinzhanhua@stu.pku.edu.cn"
+          ]
         },
         projects: {
           kicker: "Highlights",
@@ -769,8 +887,8 @@
               title: "ViDAR 多传感器融合 SLAM 与强化学习主动感知研究",
               desc: "围绕 ViDAR 场景中的多传感器融合、SLAM 与主动感知问题开展研究，将强化学习方法与机器人环境理解、感知决策过程结合起来。",
               tags: ["SLAM", "多传感器融合", "强化学习主动感知"],
-              href: "简历文件/CV_xzh-202603.pdf",
-              cta: "查看 CV"
+              href: "projects/vidar-slam.html",
+              cta: "查看详情"
             },
             {
               tone: "tone-sand",
@@ -779,8 +897,8 @@
               title: "水空跨介质仿生机器人运动机理与控制研究",
               desc: "聚焦跨介质仿生机器人在水空环境中的运动机理、控制与系统协同，相关经历在博士阶段 CV 中作为核心研究线和项目经历展开。",
               tags: ["跨介质机器人", "运动控制", "仿生系统"],
-              href: "简历文件/CV_xzh-202603.pdf",
-              cta: "查看 CV"
+              href: "projects/cross-medium-robot.html",
+              cta: "查看详情"
             },
             {
               tone: "tone-teal",
@@ -789,8 +907,8 @@
               title: "密闭空间爆燃事故瞬态灭火系统 / 智能消防机器人",
               desc: "本科至博士阶段持续关注机器人在复杂环境中的任务执行问题，曾作为项目总负责人推进“蓝鲨”悬挂式智能消防机器人，并继续延展到密闭空间瞬态灭火系统相关项目。",
               tags: ["机器人系统集成", "消防机器人", "技术负责人"],
-              href: "简历文件/CV_xzh-202603.pdf",
-              cta: "查看 CV"
+              href: "projects/firefighting-robot.html",
+              cta: "查看详情"
             }
           ]
         },
@@ -805,7 +923,7 @@
             { label: "Blog", value: "blog.xzh-fn-nas.top", href: "https://blog.xzh-fn-nas.top/" }
           ]
         },
-        footer: "© 2026 莘展骅. Built for GitHub Pages."
+        footer: "© 2026 XinZ | 个人主页."
       },
       en: {
         metaTitle: "XinZ | Homepage",
@@ -815,8 +933,15 @@
           contact: "Contact"
         },
         hero: {
-          title: "Hello, I'm XinZ",
-          subtitle: "I am currently a PhD student at PKU, with strong expertise in full-stack robotics development. Email: xinzhanhua@stu.pku.edu.cn"
+          avatar: "assets/avatar/profile.png",
+          avatarFallback: "X",
+          titleLines: ["Hello,", "I'm XinZ"],
+          subtitleLines: [
+            "PhD student at PKU",
+            "B.Eng. from Xu Teli School, BIT",
+            "Strong in full-stack robotics development",
+            "Email: xinzhanhua@stu.pku.edu.cn"
+          ]
         },
         projects: {
           kicker: "Highlights",
@@ -830,8 +955,8 @@
               title: "ViDAR Multi-Sensor SLAM and RL-Based Active Perception",
               desc: "This work focuses on multi-sensor fusion, SLAM, and active perception in ViDAR scenarios, integrating reinforcement learning with robotic scene understanding and perception-driven decision making.",
               tags: ["SLAM", "Multi-sensor Fusion", "Active Perception"],
-              href: "简历文件/CV_xzh-202603.pdf",
-              cta: "Open CV"
+              href: "projects/vidar-slam.html",
+              cta: "View Details"
             },
             {
               tone: "tone-sand",
@@ -840,8 +965,8 @@
               title: "Motion Mechanisms and Control of Cross-Medium Bio-Inspired Robots",
               desc: "This line of work centers on motion mechanisms, control, and system coordination for bio-inspired robots operating across water and air, and it appears as a core research direction in the doctoral CV.",
               tags: ["Cross-medium Robotics", "Motion Control", "Bio-inspired Systems"],
-              href: "简历文件/CV_xzh-202603.pdf",
-              cta: "Open CV"
+              href: "projects/cross-medium-robot.html",
+              cta: "View Details"
             },
             {
               tone: "tone-teal",
@@ -850,8 +975,8 @@
               title: "Confined-Space Transient Fire Suppression System / Intelligent Firefighting Robot",
               desc: "From undergraduate to doctoral work, this track continues to address robotic task execution in complex environments, including leading the Blue Shark suspended intelligent firefighting robot project and related transient fire suppression systems for confined spaces.",
               tags: ["System Integration", "Firefighting Robotics", "Technical Lead"],
-              href: "简历文件/CV_xzh-202603.pdf",
-              cta: "Open CV"
+              href: "projects/firefighting-robot.html",
+              cta: "View Details"
             }
           ]
         },
@@ -889,9 +1014,45 @@
       return items.map((item) => '<span class="' + className + '">' + item + "</span>").join("");
     }
 
+    function renderTitleLines(lines) {
+      return lines.map((line) => '<span class="hero-title-line">' + line + "</span>").join("");
+    }
+
+    function renderSubtitleLines(lines) {
+      return lines.map((line) => '<p class="hero-subtitle-line">' + line + "</p>").join("");
+    }
+
+    function renderHeroAvatar(path, fallback, brand) {
+      const img = qs("#hero-avatar-img");
+      const fallbackNode = qs("#hero-avatar-fallback");
+
+      fallbackNode.textContent = fallback || (brand ? brand.slice(0, 1).toUpperCase() : "X");
+      fallbackNode.hidden = false;
+      img.hidden = true;
+      img.removeAttribute("src");
+      img.alt = brand + " avatar";
+
+      if (!path) {
+        return;
+      }
+
+      img.onload = () => {
+        img.hidden = false;
+        fallbackNode.hidden = true;
+      };
+
+      img.onerror = () => {
+        img.hidden = true;
+        fallbackNode.hidden = false;
+      };
+
+      img.src = path;
+    }
+
     function renderProjectCards(items) {
       return items.map((item) => {
-        const target = item.href.startsWith("#") ? "" : ' target="_blank" rel="noreferrer noopener"';
+        const isExternal = /^(https?:|mailto:)/.test(item.href) || item.href.endsWith(".pdf");
+        const target = isExternal ? ' target="_blank" rel="noreferrer noopener"' : "";
         return (
           '<article class="panel content-card">' +
             '<div class="card-visual ' + item.tone + '">' +
@@ -936,8 +1097,9 @@
         link.textContent = copy.nav[link.dataset.nav];
       });
 
-      qs("#hero-title").textContent = copy.hero.title;
-      qs("#hero-subtitle").textContent = copy.hero.subtitle;
+      qs("#hero-title").innerHTML = renderTitleLines(copy.hero.titleLines);
+      qs("#hero-subtitle").innerHTML = renderSubtitleLines(copy.hero.subtitleLines);
+      renderHeroAvatar(copy.hero.avatar, copy.hero.avatarFallback, copy.brand);
 
       qs("#projects-kicker").textContent = copy.projects.kicker;
       qs("#projects-title").textContent = copy.projects.title;

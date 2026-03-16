@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>水空跨介质仿生机器人运动机理与控制研究</title>
+  <style>
+    :root {
+      --bg: #f4f0e8;
+      --surface: rgba(255, 255, 255, 0.82);
+      --text: #1b2744;
+      --muted: #58657e;
+      --primary: #2455ff;
+      --secondary: #b98f63;
+      --border: rgba(27, 39, 68, 0.1);
+      --shadow: 0 24px 60px rgba(31, 54, 112, 0.12);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(36, 85, 255, 0.1), transparent 22%),
+        radial-gradient(circle at 78% 22%, rgba(185, 143, 99, 0.14), transparent 16%),
+        var(--bg);
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
+    .page { padding: 32px 0 56px; }
+
+    .back-link,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .hero {
+      margin-top: 22px;
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(248, 240, 231, 0.9));
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(185, 143, 99, 0.12);
+      color: #8b6845;
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button.primary {
+      color: #ffffff;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .panel {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2 {
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    ul { padding-left: 18px; }
+    .section { margin-top: 20px; }
+
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+      <a class="back-link" href="../index.html">← 返回主页</a>
+
+      <section class="hero">
+        <span class="eyebrow">Research 02</span>
+        <h1>水空跨介质仿生机器人运动机理与控制研究</h1>
+        <p class="lead">该方向聚焦机器人在水和空气两种介质之间切换时的运动机理、控制策略与系统协同问题，重点强调仿生结构、跨介质动力学以及整机实验平台的闭环验证。</p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="../简历文件/CV_xzh-202603.pdf" target="_blank" rel="noreferrer noopener">查看 CV</a>
+          <a class="button" href="mailto:xinzhanhua@stu.pku.edu.cn">联系我</a>
+        </div>
+      </section>
+
+      <section class="grid section">
+        <article class="panel">
+          <h2>研究问题</h2>
+          <ul>
+            <li>跨介质切换过程中推进、姿态与阻力变化</li>
+            <li>仿生机构在不同介质下的动力学特性</li>
+            <li>机体设计、执行机构和控制系统的协同优化</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>工程实践</h2>
+          <ul>
+            <li>原型系统集成与实验平台搭建</li>
+            <li>运动控制参数整定与任务流程验证</li>
+            <li>围绕真实样机持续迭代结构与控制方案</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>页面扩展入口</h2>
+          <p>后续可以把该方向的样机照片、实验视频、控制框图、建模推导和阶段性成果继续补充到这个独立页面中。</p>
+        </article>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
