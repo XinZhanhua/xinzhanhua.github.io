@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高集成微型永磁球形电机感知与控制研究</title>
+  <style>
+    :root {
+      --bg: #f4f0e8;
+      --surface: rgba(255, 255, 255, 0.82);
+      --text: #1b2744;
+      --muted: #58657e;
+      --primary: #2455ff;
+      --secondary: #7ab6ff;
+      --border: rgba(27, 39, 68, 0.1);
+      --shadow: 0 24px 60px rgba(31, 54, 112, 0.12);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(36, 85, 255, 0.12), transparent 26%),
+        radial-gradient(circle at 80% 16%, rgba(122, 182, 255, 0.14), transparent 18%),
+        var(--bg);
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .page {
+      padding: 32px 0 56px;
+    }
+
+    .back-link,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .hero {
+      margin-top: 22px;
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(233, 242, 255, 0.9));
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(36, 85, 255, 0.1);
+      color: var(--primary);
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button.primary {
+      color: #ffffff;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    .section { margin-top: 22px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2 {
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    ul { padding-left: 18px; }
+
+    .assets-note code,
+    .media-path code {
+      word-break: break-all;
+      font-family: Consolas, "Courier New", monospace;
+      color: var(--primary);
+    }
+
+    .assets-note ul { margin-top: 10px; }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .media-card {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .media-card h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .media-frame {
+      position: relative;
+      min-height: 240px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(36, 85, 255, 0.08);
+      border: 1px dashed rgba(36, 85, 255, 0.24);
+      display: grid;
+      place-items: center;
+    }
+
+    .media-frame video,
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-empty {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      background: rgba(244, 240, 232, 0.92);
+    }
+
+    .media-empty[hidden] {
+      display: none;
+    }
+
+    .media-path {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 28px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+      <a class="back-link" href="../index.html">← 返回主页</a>
+
+      <section class="hero">
+        <span class="eyebrow">Research 01</span>
+        <h1>高集成微型永磁球形电机感知与控制研究</h1>
+        <p class="lead">该研究对应 CV 中“研究经历”的第一项，面向微型多自由度永磁球形电机在小型化条件下磁场非线性强、姿态可观测性不足以及闭环控制困难等问题，开展电机结构、磁路布局、感知建模与约束控制一体化研究。</p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="../简历文件/CV_xzh-202603.pdf" target="_blank" rel="noreferrer noopener">查看 CV</a>
+          <a class="button" href="mailto:xinzhanhua@stu.pku.edu.cn">联系我</a>
+        </div>
+      </section>
+
+      <section class="grid section">
+        <article class="panel">
+          <h2>核心问题</h2>
+          <ul>
+            <li>微型多自由度永磁球形电机在小型化条件下存在磁场非线性强、姿态可观测性不足与闭环控制困难等问题。</li>
+            <li>研究目标是实现结构、感知与控制的一体化设计。</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>感知方法</h2>
+          <ul>
+            <li>建立解析磁场前向模型与数据驱动估计框架。</li>
+            <li>提出基于真实标定约束的 hybrid synthetic/real 训练方法。</li>
+            <li>结合解析模型、合成数据预训练与 PINN 正则迁移学习，提升 Hall 信号到转子姿态映射的精度与鲁棒性。</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>控制与验证</h2>
+          <ul>
+            <li>构建带电流边界约束的级联电流分配方法，并引入径向力整形目标抑制附加法向载荷与摩擦扰动。</li>
+            <li>完成水下仿生鳍负载下的 3-DOF 闭环轨迹跟踪实验。</li>
+            <li>验证了微型球形电机在机器人关节与仿生推进场景中的应用潜力。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel assets-note section">
+        <h2>素材路径</h2>
+        <p>把项目视频和图片放到下面这些路径即可，页面会自动尝试加载；如果文件还没放，页面会保留占位提示。</p>
+        <ul>
+          <li><code>assets/projects/spherical-motor/video/demo.mp4</code></li>
+          <li><code>assets/projects/spherical-motor/images/figure-1.jpg</code></li>
+          <li><code>assets/projects/spherical-motor/images/figure-2.jpg</code></li>
+        </ul>
+      </section>
+
+      <section class="media-grid section">
+        <article class="media-card">
+          <h2>项目视频</h2>
+          <div class="media-frame">
+            <video id="project-video" controls preload="metadata" playsinline hidden></video>
+            <div class="media-empty" id="project-video-empty">视频接口已预留。建议放电机实验演示、闭环轨迹跟踪或控制效果视频。</div>
+          </div>
+          <p class="media-path">路径：<code id="project-video-path"></code></p>
+        </article>
+
+        <article class="media-card">
+          <h2>图片接口 1</h2>
+          <div class="media-frame">
+            <img id="project-image-1" alt="Spherical motor figure 1" hidden>
+            <div class="media-empty" id="project-image-1-empty">图片接口已预留。建议放电机结构图、磁路布局图或感知框架图。</div>
+          </div>
+          <p class="media-path">路径：<code id="project-image-1-path"></code></p>
+        </article>
+
+        <article class="media-card">
+          <h2>图片接口 2</h2>
+          <div class="media-frame">
+            <img id="project-image-2" alt="Spherical motor figure 2" hidden>
+            <div class="media-empty" id="project-image-2-empty">图片接口已预留。建议放实验平台、姿态估计结果图或轨迹跟踪结果图。</div>
+          </div>
+          <p class="media-path">路径：<code id="project-image-2-path"></code></p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const mediaAssets = {
+      video: "../assets/projects/spherical-motor/video/demo.mp4",
+      image1: "../assets/projects/spherical-motor/images/figure-1.jpg",
+      image2: "../assets/projects/spherical-motor/images/figure-2.jpg"
+    };
+
+    function bindImage(imgId, emptyId, pathId, src) {
+      const img = document.getElementById(imgId);
+      const empty = document.getElementById(emptyId);
+      const path = document.getElementById(pathId);
+      path.textContent = src.replace("../", "");
+      img.onload = () => {
+        img.hidden = false;
+        empty.hidden = true;
+      };
+      img.onerror = () => {
+        img.hidden = true;
+        empty.hidden = false;
+      };
+      img.src = src;
+    }
+
+    function bindVideo(videoId, emptyId, pathId, src) {
+      const video = document.getElementById(videoId);
+      const empty = document.getElementById(emptyId);
+      const path = document.getElementById(pathId);
+      path.textContent = src.replace("../", "");
+      video.onloadeddata = () => {
+        video.hidden = false;
+        empty.hidden = true;
+      };
+      video.onerror = () => {
+        video.hidden = true;
+        empty.hidden = false;
+      };
+      video.src = src;
+      video.load();
+    }
+
+    bindVideo("project-video", "project-video-empty", "project-video-path", mediaAssets.video);
+    bindImage("project-image-1", "project-image-1-empty", "project-image-1-path", mediaAssets.image1);
+    bindImage("project-image-2", "project-image-2-empty", "project-image-2-path", mediaAssets.image2);
+  </script>
+</body>
+</html>

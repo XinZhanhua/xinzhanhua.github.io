@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ViDAR 多传感器融合 SLAM 与强化学习主动感知</title>
+  <title>ViDAR多传感器融合SLAM与强化学习主动感知研究</title>
   <style>
     :root {
       --bg: #f4f0e8;
@@ -18,6 +18,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; }
+
     body {
       min-height: 100vh;
       font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -40,15 +41,16 @@
       padding: 32px 0 56px;
     }
 
-    .back-link {
+    .back-link,
+    .button {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       padding: 10px 16px;
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.7);
-      color: var(--muted);
+      background: rgba(255, 255, 255, 0.78);
     }
 
     .hero {
@@ -82,7 +84,7 @@
       max-width: 780px;
       margin-top: 18px;
       color: var(--muted);
-      font-size: 1.06rem;
+      font-size: 1.04rem;
     }
 
     .hero-actions {
@@ -92,28 +94,20 @@
       margin-top: 24px;
     }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.82);
-      font-weight: 600;
-    }
-
     .button.primary {
       color: #ffffff;
       border-color: transparent;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
     }
 
+    .section {
+      margin-top: 22px;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
-      margin-top: 22px;
     }
 
     .panel {
@@ -135,16 +129,82 @@
       font-size: 0.98rem;
     }
 
-    ul {
-      padding-left: 18px;
+    ul { padding-left: 18px; }
+
+    .assets-note code,
+    .media-path code {
+      word-break: break-all;
+      font-family: Consolas, "Courier New", monospace;
+      color: var(--primary);
     }
 
-    .section {
-      margin-top: 20px;
+    .assets-note ul {
+      margin-top: 10px;
     }
 
-    @media (max-width: 860px) {
-      .grid {
+    .media-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .media-card {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .media-card h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .media-frame {
+      position: relative;
+      min-height: 240px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(36, 85, 255, 0.08);
+      border: 1px dashed rgba(36, 85, 255, 0.24);
+      display: grid;
+      place-items: center;
+    }
+
+    .media-frame video,
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-empty {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      background: rgba(244, 240, 232, 0.92);
+    }
+
+    .media-empty[hidden] {
+      display: none;
+    }
+
+    .media-path {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .media-grid {
         grid-template-columns: 1fr;
       }
 
@@ -160,9 +220,9 @@
       <a class="back-link" href="../index.html">← 返回主页</a>
 
       <section class="hero">
-        <span class="eyebrow">Research 01</span>
-        <h1>ViDAR 多传感器融合 SLAM 与强化学习主动感知研究</h1>
-        <p class="lead">该方向围绕 ViDAR 场景中的多传感器融合、SLAM 与主动感知问题展开，重点关注感知建图、位姿估计、环境理解与决策耦合，强调“感知系统”和“主动策略”之间的闭环协同。</p>
+        <span class="eyebrow">Research 03</span>
+        <h1>ViDAR多传感器融合SLAM与强化学习主动感知研究</h1>
+        <p class="lead">该研究对应 CV 中“研究经历”的第三项，围绕传统单目 VIO 视场受限、主动观测能力不足以及平台运动与感知耦合严重等问题，设计 ViDAR（Video Detection and Ranging）装置，并进一步开展视觉-惯性-编码器紧耦合状态估计与强化学习主动 SLAM 研究。</p>
 
         <div class="hero-actions">
           <a class="button primary" href="../简历文件/CV_xzh-202603.pdf" target="_blank" rel="noreferrer noopener">查看 CV</a>
@@ -172,29 +232,116 @@
 
       <section class="grid section">
         <article class="panel">
-          <h2>研究重点</h2>
+          <h2>装置与系统设计</h2>
           <ul>
-            <li>多传感器信息在复杂场景中的协同融合</li>
-            <li>SLAM 前端感知与后端估计的鲁棒性提升</li>
-            <li>强化学习驱动的主动感知与视角决策</li>
+            <li>设计并实现 ViDAR 装置，将固定 IMU、旋转相机、电机与编码器紧耦合集成。</li>
+            <li>在低成本条件下兼顾大视场与主动感知能力，形成视觉-惯性-编码器系统。</li>
           </ul>
         </article>
 
         <article class="panel">
-          <h2>工程关注</h2>
+          <h2>方法与算法</h2>
           <ul>
-            <li>感知链路、决策链路与控制链路的一体化设计</li>
-            <li>面向真实机器人系统的算法部署与调试</li>
-            <li>实验平台搭建、数据回放与性能分析</li>
+            <li>建立 IMU、编码器与相机间的联合标定流程。</li>
+            <li>在 VINS-Mono 基础上构建视觉-惯性-编码器紧耦合里程计 VIEO，将旋转自由度显式纳入优化。</li>
+            <li>提出平台运动解耦的强化学习主动 SLAM 方法，利用 SAC 学习相机自主旋转策略。</li>
           </ul>
         </article>
 
         <article class="panel">
-          <h2>后续可补充内容</h2>
-          <p>这一页已经作为独立项目入口保留好。后续可以继续加入论文链接、项目视频、算法框架图、实验结果图和仓库地址。</p>
+          <h2>实验结论</h2>
+          <ul>
+            <li>基于特征点分布均匀性的奖励设计提升了主动观测质量。</li>
+            <li>实验表明 ViDAR 与 VIEO 能显著减小定位漂移，状态估计性能优于传统 VIO。</li>
+            <li>对应论文：IEEE TII 2025 一作论文。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel assets-note section">
+        <h2>素材路径</h2>
+        <p>把项目视频和图片放到下面这些路径即可，页面会自动尝试加载；如果文件还没放，页面会保留占位提示。</p>
+        <ul>
+          <li><code>assets/projects/vidar-slam/video/demo.mp4</code></li>
+          <li><code>assets/projects/vidar-slam/images/figure-1.jpg</code></li>
+          <li><code>assets/projects/vidar-slam/images/figure-2.jpg</code></li>
+        </ul>
+      </section>
+
+      <section class="media-grid section">
+        <article class="media-card">
+          <h2>项目视频</h2>
+          <div class="media-frame">
+            <video id="project-video" controls preload="metadata" playsinline hidden></video>
+            <div class="media-empty" id="project-video-empty">视频接口已预留。将演示视频放到指定路径后，这里会直接显示。</div>
+          </div>
+          <p class="media-path">路径：<code id="project-video-path"></code></p>
+        </article>
+
+        <article class="media-card">
+          <h2>图片接口 1</h2>
+          <div class="media-frame">
+            <img id="project-image-1" alt="ViDAR project figure 1" hidden>
+            <div class="media-empty" id="project-image-1-empty">图片接口已预留。建议放系统结构图、装置实物图或标定流程图。</div>
+          </div>
+          <p class="media-path">路径：<code id="project-image-1-path"></code></p>
+        </article>
+
+        <article class="media-card">
+          <h2>图片接口 2</h2>
+          <div class="media-frame">
+            <img id="project-image-2" alt="ViDAR project figure 2" hidden>
+            <div class="media-empty" id="project-image-2-empty">图片接口已预留。建议放实验结果图、轨迹对比图或主动感知效果图。</div>
+          </div>
+          <p class="media-path">路径：<code id="project-image-2-path"></code></p>
         </article>
       </section>
     </div>
   </main>
+
+  <script>
+    const mediaAssets = {
+      video: "../assets/projects/vidar-slam/video/demo.mp4",
+      image1: "../assets/projects/vidar-slam/images/figure-1.jpg",
+      image2: "../assets/projects/vidar-slam/images/figure-2.jpg"
+    };
+
+    function bindImage(imgId, emptyId, pathId, src) {
+      const img = document.getElementById(imgId);
+      const empty = document.getElementById(emptyId);
+      const path = document.getElementById(pathId);
+      path.textContent = src.replace("../", "");
+      img.onload = () => {
+        img.hidden = false;
+        empty.hidden = true;
+      };
+      img.onerror = () => {
+        img.hidden = true;
+        empty.hidden = false;
+      };
+      img.src = src;
+    }
+
+    function bindVideo(videoId, emptyId, pathId, src) {
+      const video = document.getElementById(videoId);
+      const empty = document.getElementById(emptyId);
+      const path = document.getElementById(pathId);
+      path.textContent = src.replace("../", "");
+      video.onloadeddata = () => {
+        video.hidden = false;
+        empty.hidden = true;
+      };
+      video.onerror = () => {
+        video.hidden = true;
+        empty.hidden = false;
+      };
+      video.src = src;
+      video.load();
+    }
+
+    bindVideo("project-video", "project-video-empty", "project-video-path", mediaAssets.video);
+    bindImage("project-image-1", "project-image-1-empty", "project-image-1-path", mediaAssets.image1);
+    bindImage("project-image-2", "project-image-2-empty", "project-image-2-path", mediaAssets.image2);
+  </script>
 </body>
 </html>

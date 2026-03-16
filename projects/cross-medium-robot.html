@@ -42,7 +42,7 @@
       padding: 10px 16px;
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.76);
+      background: rgba(255, 255, 255, 0.78);
     }
 
     .hero {
@@ -76,7 +76,7 @@
       max-width: 780px;
       margin-top: 18px;
       color: var(--muted);
-      font-size: 1.06rem;
+      font-size: 1.04rem;
     }
 
     .hero-actions {
@@ -92,11 +92,11 @@
       background: linear-gradient(135deg, var(--secondary), var(--primary));
     }
 
+    .section { margin-top: 22px; }
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
-      margin-top: 22px;
     }
 
     .panel {
@@ -119,11 +119,85 @@
     }
 
     ul { padding-left: 18px; }
-    .section { margin-top: 20px; }
 
-    @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
-      .hero { padding: 28px 22px; }
+    .assets-note code,
+    .media-path code {
+      word-break: break-all;
+      font-family: Consolas, "Courier New", monospace;
+      color: var(--primary);
+    }
+
+    .assets-note ul { margin-top: 10px; }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .media-card {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .media-card h2 {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+
+    .media-frame {
+      position: relative;
+      min-height: 240px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(185, 143, 99, 0.08);
+      border: 1px dashed rgba(185, 143, 99, 0.24);
+      display: grid;
+      place-items: center;
+    }
+
+    .media-frame video,
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-empty {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      background: rgba(244, 240, 232, 0.92);
+    }
+
+    .media-empty[hidden] {
+      display: none;
+    }
+
+    .media-path {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 28px 22px;
+      }
     }
   </style>
 </head>
@@ -135,7 +209,7 @@
       <section class="hero">
         <span class="eyebrow">Research 02</span>
         <h1>水空跨介质仿生机器人运动机理与控制研究</h1>
-        <p class="lead">该方向聚焦机器人在水和空气两种介质之间切换时的运动机理、控制策略与系统协同问题，重点强调仿生结构、跨介质动力学以及整机实验平台的闭环验证。</p>
+        <p class="lead">该研究对应 CV 中“研究经历”的第二项，面向仿飞鱼式水空跨介质机器人小型化、高机动与跨域连续运动需求，开展混合驱动平台设计、跨介质动力学建模与机载传感器闭环控制研究，并完成完整实验验证。</p>
 
         <div class="hero-actions">
           <a class="button primary" href="../简历文件/CV_xzh-202603.pdf" target="_blank" rel="noreferrer noopener">查看 CV</a>
@@ -145,29 +219,116 @@
 
       <section class="grid section">
         <article class="panel">
-          <h2>研究问题</h2>
+          <h2>平台设计</h2>
           <ul>
-            <li>跨介质切换过程中推进、姿态与阻力变化</li>
-            <li>仿生机构在不同介质下的动力学特性</li>
-            <li>机体设计、执行机构和控制系统的协同优化</li>
+            <li>设计并实现微型混合驱动仿生机器鱼平台。</li>
+            <li>将高频尾鳍摆动推进与前部螺旋桨推进相结合，在紧凑集成条件下实现水面、水下与出水后的连续运动。</li>
           </ul>
         </article>
 
         <article class="panel">
-          <h2>工程实践</h2>
+          <h2>建模与控制</h2>
           <ul>
-            <li>原型系统集成与实验平台搭建</li>
-            <li>运动控制参数整定与任务流程验证</li>
-            <li>围绕真实样机持续迭代结构与控制方案</li>
+            <li>建立机器人在垂直平面内的动力学模型。</li>
+            <li>提出 z-θ 平面视线导航法（LOS）引导与逆动力学滑模控制方法。</li>
+            <li>结合状态观测器实现仅依赖机载传感器的水下姿态/深度闭环控制。</li>
           </ul>
         </article>
 
         <article class="panel">
-          <h2>页面扩展入口</h2>
-          <p>后续可以把该方向的样机照片、实验视频、控制框图、建模推导和阶段性成果继续补充到这个独立页面中。</p>
+          <h2>实验结果</h2>
+          <ul>
+            <li>完成混合驱动、垂直跃出及跨域运动验证。</li>
+            <li>机器人实现最高 6.88 BL/s 的稳定表面游动速度和约 5.5 倍体长的出水高度。</li>
+            <li>完成从水下待机、姿态调整、跨域跃出到空中加速的完整过程验证。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel assets-note section">
+        <h2>素材路径</h2>
+        <p>把项目视频和图片放到下面这些路径即可，页面会自动尝试加载；如果文件还没放，页面会保留占位提示。</p>
+        <ul>
+          <li><code>assets/projects/cross-medium-robot/video/demo.mp4</code></li>
+          <li><code>assets/projects/cross-medium-robot/images/figure-1.jpg</code></li>
+          <li><code>assets/projects/cross-medium-robot/images/figure-2.jpg</code></li>
+        </ul>
+      </section>
+
+      <section class="media-grid section">
+        <article class="media-card">
+          <h2>项目视频</h2>
+          <div class="media-frame">
+            <video id="project-video" controls preload="metadata" playsinline hidden></video>
+            <div class="media-empty" id="project-video-empty">视频接口已预留。建议放跨介质跃出、表面游动或整机实验演示视频。</div>
+          </div>
+          <p class="media-path">路径：<code id="project-video-path"></code></p>
+        </article>
+
+        <article class="media-card">
+          <h2>图片接口 1</h2>
+          <div class="media-frame">
+            <img id="project-image-1" alt="Cross-medium robot figure 1" hidden>
+            <div class="media-empty" id="project-image-1-empty">图片接口已预留。建议放机器人实物图、结构图或推进机构设计图。</div>
+          </div>
+          <p class="media-path">路径：<code id="project-image-1-path"></code></p>
+        </article>
+
+        <article class="media-card">
+          <h2>图片接口 2</h2>
+          <div class="media-frame">
+            <img id="project-image-2" alt="Cross-medium robot figure 2" hidden>
+            <div class="media-empty" id="project-image-2-empty">图片接口已预留。建议放跃出序列图、速度曲线或实验结果图。</div>
+          </div>
+          <p class="media-path">路径：<code id="project-image-2-path"></code></p>
         </article>
       </section>
     </div>
   </main>
+
+  <script>
+    const mediaAssets = {
+      video: "../assets/projects/cross-medium-robot/video/demo.mp4",
+      image1: "../assets/projects/cross-medium-robot/images/figure-1.jpg",
+      image2: "../assets/projects/cross-medium-robot/images/figure-2.jpg"
+    };
+
+    function bindImage(imgId, emptyId, pathId, src) {
+      const img = document.getElementById(imgId);
+      const empty = document.getElementById(emptyId);
+      const path = document.getElementById(pathId);
+      path.textContent = src.replace("../", "");
+      img.onload = () => {
+        img.hidden = false;
+        empty.hidden = true;
+      };
+      img.onerror = () => {
+        img.hidden = true;
+        empty.hidden = false;
+      };
+      img.src = src;
+    }
+
+    function bindVideo(videoId, emptyId, pathId, src) {
+      const video = document.getElementById(videoId);
+      const empty = document.getElementById(emptyId);
+      const path = document.getElementById(pathId);
+      path.textContent = src.replace("../", "");
+      video.onloadeddata = () => {
+        video.hidden = false;
+        empty.hidden = true;
+      };
+      video.onerror = () => {
+        video.hidden = true;
+        empty.hidden = false;
+      };
+      video.src = src;
+      video.load();
+    }
+
+    bindVideo("project-video", "project-video-empty", "project-video-path", mediaAssets.video);
+    bindImage("project-image-1", "project-image-1-empty", "project-image-1-path", mediaAssets.image1);
+    bindImage("project-image-2", "project-image-2-empty", "project-image-2-path", mediaAssets.image2);
+  </script>
 </body>
 </html>
