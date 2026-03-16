@@ -269,7 +269,7 @@
 
     .hero {
       position: relative;
-      padding: 108px 0 68px;
+      padding: 92px 0 44px;
       text-align: center;
       overflow: hidden;
     }
@@ -306,7 +306,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 22px;
+      gap: 16px;
+      max-width: 980px;
     }
 
     .hero-avatar {
@@ -961,11 +962,10 @@
 
       <div class="nav-group">
         <nav class="site-nav" aria-label="Primary navigation">
-          <a href="#about" data-nav="about">个人简介</a>
-          <a href="#projects" data-nav="projects">核心内容</a>
+          <a href="#projects" data-nav="projects">研究与项目</a>
           <a href="#timeline" data-nav="timeline">时间轴</a>
-          <a href="#stack" data-nav="stack">技术栈</a>
-          <a href="#contact" data-nav="contact">联系我</a>
+          <a href="#stack" data-nav="stack">研究方向</a>
+          <a href="#contact" data-nav="contact">联系方式</a>
         </nav>
 
         <div class="nav-controls">
@@ -987,43 +987,8 @@
   <main>
     <section class="hero" id="hero">
       <div class="container hero-inner">
-        <div class="hero-avatar" aria-hidden="true">
-          <div class="avatar-ring"></div>
-          <div class="avatar-glow"></div>
-          <div class="avatar-core">XH</div>
-        </div>
-
-        <p class="eyebrow" id="hero-eyebrow">GitHub Personal Homepage</p>
-        <h1 class="hero-title" id="hero-title">你好，我是 Xinzhanhua</h1>
+        <h1 class="hero-title" id="hero-title">你好，我是莘展骅</h1>
         <p class="hero-subtitle" id="hero-subtitle"></p>
-
-        <div class="hero-tags" id="hero-tags"></div>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects" id="hero-primary"></a>
-          <a class="btn btn-secondary" href="#contact" id="hero-secondary"></a>
-        </div>
-
-        <div class="hero-metrics" id="hero-metrics"></div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-kicker" id="about-kicker"></p>
-          <h2 class="section-title" id="about-title"></h2>
-          <p class="section-desc" id="about-desc"></p>
-        </div>
-
-        <div class="about-grid">
-          <article class="panel about-card">
-            <p class="about-lead" id="about-lead"></p>
-            <p class="about-body" id="about-body"></p>
-          </article>
-
-          <div class="focus-grid" id="focus-grid"></div>
-        </div>
       </div>
     </section>
 
@@ -1092,50 +1057,19 @@
         metaTitle: "莘展骅 | 个人主页",
         brand: "莘展骅",
         nav: {
-          about: "个人简介",
           projects: "研究与项目",
           timeline: "时间轴",
           stack: "研究方向",
           contact: "联系方式"
         },
         hero: {
-          eyebrow: "GitHub Personal Homepage",
-          title: "你好，我是莘展骅",
-          subtitle: "北京大学博士研究生，本科毕业于北京理工大学徐特立英才班机电方向。当前主要围绕机器人感知与控制、多传感器融合 SLAM、强化学习主动感知，以及水空跨介质仿生机器人等方向开展研究与工程实践。",
-          tags: ["北京大学博士研究生", "北京理工大学工学学士", "Robotics / SLAM / Embodied AI"],
-          primaryAction: "查看研究与项目",
-          secondaryAction: "联系我",
-          metrics: [
-            { value: "03", label: "主要研究主线", note: "球形电机感知与控制、跨介质仿生机器人、ViDAR 多传感器融合 SLAM 与强化学习主动感知。" },
-            { value: "10+", label: "竞赛与创新成果", note: "本科阶段累计获得多项国家级、省部级和校级创新创业赛事奖项。" },
-            { value: "BIT → PKU", label: "教育背景", note: "从北京理工大学机电方向本科，进入北京大学继续博士阶段研究。" }
-          ]
-        },
-        about: {
-          kicker: "About Me",
-          title: "个人简介",
-          desc: "这里保留的是最值得放在个人主页首页的核心信息：当前身份、研究兴趣、技术基础与代表性经历。",
-          lead: "我的工作长期围绕机器人系统中的感知、控制与智能展开，既做科研，也重视工程落地。",
-          body: "根据你提供的博士阶段 CV 和本科简历资料，我把首页信息压缩成了一个更适合 GitHub 主页的结构：前台突出当前研究方向与代表性项目，后台保留教育背景、竞赛经历、科研训练和联系方式，方便访问者在一页内快速建立整体印象。",
-          focus: [
-            {
-              title: "当前阶段",
-              text: "现为北京大学博士研究生，重点关注机器人感知与控制、多模态感知、SLAM 与强化学习主动感知等问题。"
-            },
-            {
-              title: "研究兴趣",
-              text: "高集成微型永磁球形电机感知与控制、水空跨介质仿生机器人运动机理与控制、ViDAR 多传感器融合 SLAM 与强化学习主动感知。"
-            },
-            {
-              title: "前期基础",
-              text: "本科就读于北京理工大学徐特立英才班机电方向，参与国家级大创、RoboMaster、智能机器人研究所课题，并积累了机械、电路、控制与系统集成的实践经验。"
-            }
-          ]
+          title: "你好，我是Hapisama",
+          subtitle: "北京大学博士研究生，本科毕业于北京理工大学徐特立英才班机电方向。当前主要围绕机器人感知与控制、多传感器融合SLAM、强化学习主动感知，以及水下机器人等方向开展研究与工程实践。"
         },
         projects: {
           kicker: "Highlights",
           title: "研究与项目",
-          desc: "这一部分优先展示你在博士阶段持续推进的研究主题，以及能体现工程能力与系统能力的代表性项目。",
+          desc: "",
           items: [
             {
               tone: "tone-cobalt",
@@ -1144,8 +1078,8 @@
               title: "ViDAR 多传感器融合 SLAM 与强化学习主动感知研究",
               desc: "围绕 ViDAR 场景中的多传感器融合、SLAM 与主动感知问题开展研究，将强化学习方法与机器人环境理解、感知决策过程结合起来。",
               tags: ["SLAM", "多传感器融合", "强化学习主动感知"],
-              href: "#about",
-              cta: "查看简介"
+              href: "简历文件/CV_xzh-202603.pdf",
+              cta: "查看 CV"
             },
             {
               tone: "tone-sand",
@@ -1172,7 +1106,7 @@
         timeline: {
           kicker: "Timeline",
           title: "时间轴",
-          desc: "时间轴里放的是最重要、最能说明研究路径演进的几个节点，而不是完整简历的逐条复制。",
+          desc: "",
           items: [
             {
               date: "博士阶段 / 至今",
@@ -1199,7 +1133,7 @@
         stack: {
           kicker: "Stack",
           title: "研究方向与能力结构",
-          desc: "这里不再写泛泛的技术名词，而是把简历里真正稳定、重复出现的方向和能力整理成几组。",
+          desc: "",
           groups: [
             {
               title: "Research",
@@ -1222,15 +1156,15 @@
         contact: {
           kicker: "Contact",
           title: "联系方式",
-          desc: "我保留了最适合公开放在 GitHub 主页的几个入口：邮箱、GitHub、主页和 CV 文件。",
+          desc: "",
           featureTitle: "当前已根据简历资料回填的信息",
           featureDesc: "邮箱使用博士阶段 CV 中的北大学生邮箱；GitHub 和个人主页也已替换为现有链接。如有 Google Scholar、ORCID 或论文主页，后续可以继续补进来。",
           pills: ["北京大学", "xinzhanhua@stu.pku.edu.cn", "GitHub Pages"],
           links: [
             { label: "Email", value: "xinzhanhua@stu.pku.edu.cn", href: "mailto:xinzhanhua@stu.pku.edu.cn" },
+            { label: "Gitee", value: "gitee.com/xinzhanhua", href: "https://gitee.com/xinzhanhua" },
             { label: "GitHub", value: "github.com/xinzhanhua", href: "https://github.com/xinzhanhua" },
-            { label: "Homepage", value: "xinzhanhua.github.io", href: "https://xinzhanhua.github.io/" },
-            { label: "CV", value: "简历文件/CV_xzh-202603.pdf", href: "简历文件/CV_xzh-202603.pdf" }
+            { label: "blog", value: "blog.xzh-fn-nas.top", href: "https://blog.xzh-fn-nas.top/" }
           ]
         },
         footer: "© 2026 莘展骅. Built for GitHub Pages."
@@ -1239,45 +1173,14 @@
         metaTitle: "Xinzhanhua | Homepage",
         brand: "Xinzhanhua",
         nav: {
-          about: "About",
           projects: "Research",
           timeline: "Timeline",
           stack: "Focus",
           contact: "Contact"
         },
         hero: {
-          eyebrow: "GitHub Personal Homepage",
           title: "Hello, I'm Xinzhanhua",
-          subtitle: "I am currently a PhD student at Peking University, with an undergraduate background in mechatronics from Beijing Institute of Technology. My recent work focuses on robotic perception and control, multi-sensor SLAM, reinforcement-learning-based active perception, and amphibious bio-inspired robotics.",
-          tags: ["PhD Student at PKU", "B.Eng. from BIT", "Robotics / SLAM / Embodied AI"],
-          primaryAction: "View Research",
-          secondaryAction: "Contact",
-          metrics: [
-            { value: "03", label: "Main Research Tracks", note: "Spherical motor perception and control, cross-medium bio-inspired robotics, and ViDAR multi-sensor SLAM with RL-based active perception." },
-            { value: "10+", label: "Innovation Outcomes", note: "Multiple national, provincial, and university-level awards from innovation and entrepreneurship competitions." },
-            { value: "BIT → PKU", label: "Education Path", note: "From BIT undergraduate training in mechatronics to PhD-stage research at PKU." }
-          ]
-        },
-        about: {
-          kicker: "About Me",
-          title: "About",
-          desc: "This section keeps only the information that matters most on a first visit: current identity, research focus, technical background, and representative experience.",
-          lead: "My work has consistently centered on perception, control, and intelligence in robotic systems, with attention to both research depth and engineering execution.",
-          body: "Based on the materials you provided, I reorganized the homepage around the information that best represents your current stage: doctoral research topics, representative projects, educational background, and selected achievements from earlier training at Beijing Institute of Technology.",
-          focus: [
-            {
-              title: "Current Stage",
-              text: "PhD student at Peking University, currently working on robotic perception and control, multi-modal perception, SLAM, and reinforcement-learning-based active perception."
-            },
-            {
-              title: "Research Focus",
-              text: "Integrated sensing and control of miniature permanent-magnet spherical motors, amphibious bio-inspired robots, and ViDAR multi-sensor fusion SLAM with active perception."
-            },
-            {
-              title: "Previous Foundation",
-              text: "Undergraduate training at Beijing Institute of Technology, with experience in national-level student innovation projects, RoboMaster, and intelligent robotics research."
-            }
-          ]
+          subtitle: "I am currently a PhD student at Peking University, with an undergraduate background in mechatronics from Beijing Institute of Technology. My recent work focuses on robotic perception and control, multi-sensor SLAM, reinforcement-learning-based active perception, and amphibious bio-inspired robotics."
         },
         projects: {
           kicker: "Highlights",
@@ -1291,8 +1194,8 @@
               title: "ViDAR Multi-Sensor SLAM and RL-Based Active Perception",
               desc: "Research on multi-sensor fusion, SLAM, and active perception in ViDAR-related settings, combining reinforcement learning with scene understanding and perception-driven decision making.",
               tags: ["SLAM", "Multi-sensor Fusion", "Active Perception"],
-              href: "#about",
-              cta: "Read About"
+              href: "简历文件/CV_xzh-202603.pdf",
+              cta: "Open CV"
             },
             {
               tone: "tone-sand",
@@ -1389,7 +1292,7 @@
       theme: localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
     };
 
-    const sections = ["about", "projects", "timeline", "stack", "contact"];
+    const sections = ["projects", "timeline", "stack", "contact"];
 
     function qs(selector, root = document) {
       return root.querySelector(selector);
@@ -1491,20 +1394,8 @@
         link.textContent = copy.nav[link.dataset.nav];
       });
 
-      qs("#hero-eyebrow").textContent = copy.hero.eyebrow;
       qs("#hero-title").textContent = copy.hero.title;
       qs("#hero-subtitle").textContent = copy.hero.subtitle;
-      qs("#hero-primary").textContent = copy.hero.primaryAction;
-      qs("#hero-secondary").textContent = copy.hero.secondaryAction;
-      qs("#hero-tags").innerHTML = renderPills(copy.hero.tags, "hero-tag");
-      qs("#hero-metrics").innerHTML = renderMetrics(copy.hero.metrics);
-
-      qs("#about-kicker").textContent = copy.about.kicker;
-      qs("#about-title").textContent = copy.about.title;
-      qs("#about-desc").textContent = copy.about.desc;
-      qs("#about-lead").textContent = copy.about.lead;
-      qs("#about-body").textContent = copy.about.body;
-      qs("#focus-grid").innerHTML = renderFocusCards(copy.about.focus);
 
       qs("#projects-kicker").textContent = copy.projects.kicker;
       qs("#projects-title").textContent = copy.projects.title;
