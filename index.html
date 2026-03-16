@@ -1089,219 +1089,295 @@
   <script>
     const siteContent = {
       zh: {
-        metaTitle: "Xinzhanhua | GitHub 个人主页",
-        brand: "Xinzhanhua",
+        metaTitle: "莘展骅 | 个人主页",
+        brand: "莘展骅",
         nav: {
           about: "个人简介",
-          projects: "核心内容",
+          projects: "研究与项目",
           timeline: "时间轴",
-          stack: "技术栈",
-          contact: "联系我"
+          stack: "研究方向",
+          contact: "联系方式"
         },
         hero: {
           eyebrow: "GitHub Personal Homepage",
-          title: "你好，我是 Xinzhanhua",
-          subtitle: "这是一个参考你给出的主页风格后重做的 GitHub Pages 单页模板。它更适合作为个人简介、项目经历和联系方式的长期入口页。",
-          tags: ["一句话身份标签", "学校 / 团队 / 城市", "研究方向或求职方向"],
-          primaryAction: "查看核心内容",
+          title: "你好，我是莘展骅",
+          subtitle: "北京大学博士研究生，本科毕业于北京理工大学徐特立英才班机电方向。当前主要围绕机器人感知与控制、多传感器融合 SLAM、强化学习主动感知，以及水空跨介质仿生机器人等方向开展研究与工程实践。",
+          tags: ["北京大学博士研究生", "北京理工大学工学学士", "Robotics / SLAM / Embodied AI"],
+          primaryAction: "查看研究与项目",
           secondaryAction: "联系我",
           metrics: [
-            { value: "01", label: "单页主页", note: "不依赖框架，适合直接部署到 GitHub Pages。" },
-            { value: "03", label: "内容卡片", note: "先放示例卡片，后面可直接替换成真实项目。" },
-            { value: "100%", label: "原生实现", note: "HTML、CSS、JS 都在一个文件里，后续维护简单。" }
+            { value: "03", label: "主要研究主线", note: "球形电机感知与控制、跨介质仿生机器人、ViDAR 多传感器融合 SLAM 与强化学习主动感知。" },
+            { value: "10+", label: "竞赛与创新成果", note: "本科阶段累计获得多项国家级、省部级和校级创新创业赛事奖项。" },
+            { value: "BIT → PKU", label: "教育背景", note: "从北京理工大学机电方向本科，进入北京大学继续博士阶段研究。" }
           ]
         },
         about: {
           kicker: "About Me",
           title: "个人简介",
-          desc: "建议只保留别人第一次访问时最关心的信息：你是谁、最近在做什么、你在关注什么方向。",
-          lead: "首页更适合做“入口页”，而不是把完整简历一次性塞满。",
-          body: "你可以在这里写一段精炼介绍，再用下方模块承接项目、经历和联系方式。这样比把所有信息堆在第一屏更清晰，也更适合长期维护。",
+          desc: "这里保留的是最值得放在个人主页首页的核心信息：当前身份、研究兴趣、技术基础与代表性经历。",
+          lead: "我的工作长期围绕机器人系统中的感知、控制与智能展开，既做科研，也重视工程落地。",
+          body: "根据你提供的博士阶段 CV 和本科简历资料，我把首页信息压缩成了一个更适合 GitHub 主页的结构：前台突出当前研究方向与代表性项目，后台保留教育背景、竞赛经历、科研训练和联系方式，方便访问者在一页内快速建立整体印象。",
           focus: [
-            { title: "当前阶段", text: "例如本科生、研究助理、算法实习、申请季或毕业设计阶段。" },
-            { title: "研究 / 关注方向", text: "例如多模态、机器人、可视化、医学影像、HCI 等关键词。" },
-            { title: "个人定位", text: "例如偏研究的工程型开发者，或关注科研与产品落地结合。" }
+            {
+              title: "当前阶段",
+              text: "现为北京大学博士研究生，重点关注机器人感知与控制、多模态感知、SLAM 与强化学习主动感知等问题。"
+            },
+            {
+              title: "研究兴趣",
+              text: "高集成微型永磁球形电机感知与控制、水空跨介质仿生机器人运动机理与控制、ViDAR 多传感器融合 SLAM 与强化学习主动感知。"
+            },
+            {
+              title: "前期基础",
+              text: "本科就读于北京理工大学徐特立英才班机电方向，参与国家级大创、RoboMaster、智能机器人研究所课题，并积累了机械、电路、控制与系统集成的实践经验。"
+            }
           ]
         },
         projects: {
           kicker: "Highlights",
-          title: "核心内容",
-          desc: "这里先不机械复刻参考站的项目区，而是做成三张更容易替换的内容卡片。后面你可以直接改成自己的代表项目。",
+          title: "研究与项目",
+          desc: "这一部分优先展示你在博士阶段持续推进的研究主题，以及能体现工程能力与系统能力的代表性项目。",
           items: [
             {
               tone: "tone-cobalt",
-              code: "Profile",
+              code: "Research",
               mark: "01",
-              title: "个人简介模块",
-              desc: "这一张适合放你的核心自我介绍，包括研究兴趣、技术背景和当前状态。",
-              tags: ["自我介绍", "研究方向", "首页入口"],
+              title: "ViDAR 多传感器融合 SLAM 与强化学习主动感知研究",
+              desc: "围绕 ViDAR 场景中的多传感器融合、SLAM 与主动感知问题开展研究，将强化学习方法与机器人环境理解、感知决策过程结合起来。",
+              tags: ["SLAM", "多传感器融合", "强化学习主动感知"],
               href: "#about",
               cta: "查看简介"
             },
             {
               tone: "tone-sand",
-              code: "Archive",
+              code: "Lab",
               mark: "02",
-              title: "项目与实践展示",
-              desc: "后续最适合替换成真实项目。保留标题、一段简介和几个标签就足够清楚。",
-              tags: ["项目展示", "竞赛 / 科研 / 课程", "可替换仓库链接"],
-              href: "https://github.com/xinzhanhua?tab=repositories",
-              cta: "查看仓库"
+              title: "水空跨介质仿生机器人运动机理与控制研究",
+              desc: "聚焦跨介质仿生机器人在水空环境中的运动机理、控制与系统协同，相关经历在博士阶段 CV 中作为核心研究线和项目经历展开。",
+              tags: ["跨介质机器人", "运动控制", "仿生系统"],
+              href: "#timeline",
+              cta: "查看时间轴"
             },
             {
               tone: "tone-teal",
-              code: "Journey",
+              code: "Project",
               mark: "03",
-              title: "经历时间轴",
-              desc: "如果主页主要是服务于申请、求职或学术展示，时间轴会比堆很多卡片更有效。",
-              tags: ["经历梳理", "申请 / 求职", "一屏读懂"],
-              href: "#timeline",
-              cta: "查看时间轴"
+              title: "密闭空间爆燃事故瞬态灭火系统 / 智能消防机器人",
+              desc: "本科至博士阶段持续关注机器人在复杂环境中的任务执行问题，曾作为项目总负责人推进“蓝鲨”悬挂式智能消防机器人，并继续延展到密闭空间瞬态灭火系统相关项目。",
+              tags: ["机器人系统集成", "消防机器人", "技术负责人"],
+              href: "简历文件/CV_xzh-202603.pdf",
+              cta: "查看 CV"
             }
           ]
         },
         timeline: {
           kicker: "Timeline",
           title: "时间轴",
-          desc: "这里放一个适合个人主页的时间轴骨架。你后续只需要把年份、标题和描述改成自己的真实经历。",
+          desc: "时间轴里放的是最重要、最能说明研究路径演进的几个节点，而不是完整简历的逐条复制。",
           items: [
-            { date: "2026 / Now", title: "当前阶段", desc: "填写你最近正在做的事情，例如论文、科研项目、实习或求职。" },
-            { date: "2025", title: "代表性成果", desc: "写你最想被看见的一段经历，例如竞赛、项目落地、奖项或核心仓库。" },
-            { date: "2024", title: "方向变化", desc: "可以强调技术栈扩展、研究方向变化或重要合作经历。" },
-            { date: "2023", title: "起点信息", desc: "补充更早的学习背景、专业方向或第一次项目经历。" }
+            {
+              date: "博士阶段 / 至今",
+              title: "北京大学博士研究生",
+              desc: "博士阶段主要围绕高集成微型永磁球形电机感知与控制、水空跨介质仿生机器人，以及 ViDAR 多传感器融合 SLAM 与强化学习主动感知等方向开展研究。"
+            },
+            {
+              date: "2020 - 2022",
+              title: "北京理工大学智能机器人研究所",
+              desc: "参与“基于光电镊原理的片上检测细胞操作分析系统”课题，承担光路设计、搭建、电路设计、上位机设计及部分论文撰写工作，并发表 IEEE 论文。"
+            },
+            {
+              date: "2019 - 2022",
+              title: "国家级大创与机器人竞赛实践",
+              desc: "作为“蓝鲨”悬挂式智能消防机器人项目总负责人，推动机器人系统研发、专利申请与创新创业竞赛；同时在 RoboMaster 机甲大师对抗赛中担任无人机项目组负责人。"
+            },
+            {
+              date: "2018 - 2022",
+              title: "北京理工大学工学学士",
+              desc: "本科就读于北京理工大学徐特立英才班机电方向，GPA 87.8/100，系统完成数理基础、机械、控制、电路与程序设计等训练。"
+            }
           ]
         },
         stack: {
           kicker: "Stack",
-          title: "技术栈",
-          desc: "建议这里不要铺得太满，只保留和你目标最相关的方向与工具。",
+          title: "研究方向与能力结构",
+          desc: "这里不再写泛泛的技术名词，而是把简历里真正稳定、重复出现的方向和能力整理成几组。",
           groups: [
-            { title: "Research", items: ["研究方向 A", "研究方向 B", "研究方法 C", "学术写作"] },
-            { title: "Engineering", items: ["Python", "C++", "Git", "Linux"] },
-            { title: "Tools", items: ["PyTorch", "Jupyter", "LaTeX", "Figma"] },
-            { title: "Output", items: ["项目展示", "技术记录", "论文阅读", "公开仓库"] }
+            {
+              title: "Research",
+              items: ["机器人感知与控制", "多传感器融合 SLAM", "强化学习主动感知", "跨介质仿生机器人"]
+            },
+            {
+              title: "System",
+              items: ["机电系统集成", "运动机理分析", "运动规划与控制", "机器人任务执行"]
+            },
+            {
+              title: "Engineering",
+              items: ["机械设计", "电路设计", "上位机设计", "实验系统搭建"]
+            },
+            {
+              title: "Output",
+              items: ["IEEE 论文", "专利申请", "创新创业竞赛", "科研项目协作"]
+            }
           ]
         },
         contact: {
           kicker: "Contact",
-          title: "联系我",
-          desc: "首页不需要放太多联系方式，只需要给出最容易采取行动的入口。",
-          featureTitle: "建议你先替换这 3 类信息",
-          featureDesc: "姓名、邮箱、一个主链接。通常这三项就足够支撑一个 GitHub 个人主页。",
-          pills: ["姓名 / 标题", "邮箱地址", "一个主链接"],
+          title: "联系方式",
+          desc: "我保留了最适合公开放在 GitHub 主页的几个入口：邮箱、GitHub、主页和 CV 文件。",
+          featureTitle: "当前已根据简历资料回填的信息",
+          featureDesc: "邮箱使用博士阶段 CV 中的北大学生邮箱；GitHub 和个人主页也已替换为现有链接。如有 Google Scholar、ORCID 或论文主页，后续可以继续补进来。",
+          pills: ["北京大学", "xinzhanhua@stu.pku.edu.cn", "GitHub Pages"],
           links: [
+            { label: "Email", value: "xinzhanhua@stu.pku.edu.cn", href: "mailto:xinzhanhua@stu.pku.edu.cn" },
             { label: "GitHub", value: "github.com/xinzhanhua", href: "https://github.com/xinzhanhua" },
-            { label: "Email", value: "your-email@example.com", href: "mailto:your-email@example.com" },
-            { label: "Resume", value: "把这里换成你的简历链接", href: "#hero" }
+            { label: "Homepage", value: "xinzhanhua.github.io", href: "https://xinzhanhua.github.io/" },
+            { label: "CV", value: "简历文件/CV_xzh-202603.pdf", href: "简历文件/CV_xzh-202603.pdf" }
           ]
         },
-        footer: "© 2026 Xinzhanhua. Built for GitHub Pages."
+        footer: "© 2026 莘展骅. Built for GitHub Pages."
       },
       en: {
-        metaTitle: "Xinzhanhua | GitHub Homepage",
+        metaTitle: "Xinzhanhua | Homepage",
         brand: "Xinzhanhua",
         nav: {
           about: "About",
-          projects: "Highlights",
+          projects: "Research",
           timeline: "Timeline",
-          stack: "Stack",
+          stack: "Focus",
           contact: "Contact"
         },
         hero: {
           eyebrow: "GitHub Personal Homepage",
           title: "Hello, I'm Xinzhanhua",
-          subtitle: "This is a GitHub Pages landing page rebuilt around the style of your reference site. It works better as a maintainable entry point for your profile, projects, and contact links.",
-          tags: ["One-line identity", "School / Team / City", "Research or career focus"],
-          primaryAction: "View Highlights",
+          subtitle: "I am currently a PhD student at Peking University, with an undergraduate background in mechatronics from Beijing Institute of Technology. My recent work focuses on robotic perception and control, multi-sensor SLAM, reinforcement-learning-based active perception, and amphibious bio-inspired robotics.",
+          tags: ["PhD Student at PKU", "B.Eng. from BIT", "Robotics / SLAM / Embodied AI"],
+          primaryAction: "View Research",
           secondaryAction: "Contact",
           metrics: [
-            { value: "01", label: "Landing Page", note: "No framework required, easy to deploy on GitHub Pages." },
-            { value: "03", label: "Content Cards", note: "These sample cards can later be replaced with real projects." },
-            { value: "100%", label: "Vanilla Build", note: "Everything stays in one file for low maintenance." }
+            { value: "03", label: "Main Research Tracks", note: "Spherical motor perception and control, cross-medium bio-inspired robotics, and ViDAR multi-sensor SLAM with RL-based active perception." },
+            { value: "10+", label: "Innovation Outcomes", note: "Multiple national, provincial, and university-level awards from innovation and entrepreneurship competitions." },
+            { value: "BIT → PKU", label: "Education Path", note: "From BIT undergraduate training in mechatronics to PhD-stage research at PKU." }
           ]
         },
         about: {
           kicker: "About Me",
           title: "About",
-          desc: "Keep only the information people care about on first visit: who you are, what you are doing now, and what you focus on.",
-          lead: "A homepage works better as a clear entry point than as a full resume dump.",
-          body: "Use this section for a concise introduction, then let the modules below carry projects, experience, and contact paths. That keeps the page clearer and easier to maintain over time.",
+          desc: "This section keeps only the information that matters most on a first visit: current identity, research focus, technical background, and representative experience.",
+          lead: "My work has consistently centered on perception, control, and intelligence in robotic systems, with attention to both research depth and engineering execution.",
+          body: "Based on the materials you provided, I reorganized the homepage around the information that best represents your current stage: doctoral research topics, representative projects, educational background, and selected achievements from earlier training at Beijing Institute of Technology.",
           focus: [
-            { title: "Current Stage", text: "For example undergraduate researcher, intern, applicant, or thesis stage." },
-            { title: "Research / Focus", text: "Use keywords such as multimodal systems, robotics, HCI, visualization, or medical imaging." },
-            { title: "Positioning", text: "For example research-driven engineer or builder focused on shipping ideas." }
+            {
+              title: "Current Stage",
+              text: "PhD student at Peking University, currently working on robotic perception and control, multi-modal perception, SLAM, and reinforcement-learning-based active perception."
+            },
+            {
+              title: "Research Focus",
+              text: "Integrated sensing and control of miniature permanent-magnet spherical motors, amphibious bio-inspired robots, and ViDAR multi-sensor fusion SLAM with active perception."
+            },
+            {
+              title: "Previous Foundation",
+              text: "Undergraduate training at Beijing Institute of Technology, with experience in national-level student innovation projects, RoboMaster, and intelligent robotics research."
+            }
           ]
         },
         projects: {
           kicker: "Highlights",
-          title: "Core Sections",
-          desc: "This does not mechanically copy the reference project's project grid. It starts with three reusable cards that you can later replace with real projects.",
+          title: "Research and Projects",
+          desc: "This section prioritizes research themes and representative projects that show both long-term academic direction and system-level engineering ability.",
           items: [
             {
               tone: "tone-cobalt",
-              code: "Profile",
+              code: "Research",
               mark: "01",
-              title: "Profile Module",
-              desc: "Use this card for your core self-introduction, including interests, background, and current focus.",
-              tags: ["Intro", "Focus", "Homepage entry"],
+              title: "ViDAR Multi-Sensor SLAM and RL-Based Active Perception",
+              desc: "Research on multi-sensor fusion, SLAM, and active perception in ViDAR-related settings, combining reinforcement learning with scene understanding and perception-driven decision making.",
+              tags: ["SLAM", "Multi-sensor Fusion", "Active Perception"],
               href: "#about",
               cta: "Read About"
             },
             {
               tone: "tone-sand",
-              code: "Archive",
+              code: "Lab",
               mark: "02",
-              title: "Projects and Practice",
-              desc: "This is the best card to replace with real projects later. A title, a short description, and a few tags are enough.",
-              tags: ["Projects", "Research / Contest / Course", "Replace with repo links"],
-              href: "https://github.com/xinzhanhua?tab=repositories",
-              cta: "Open Repos"
+              title: "Amphibious Bio-Inspired Robot Motion and Control",
+              desc: "Focused on motion mechanisms, control, and system coordination for cross-medium bio-inspired robotic platforms operating across water and air environments.",
+              tags: ["Cross-medium Robotics", "Motion Control", "Bio-inspired Systems"],
+              href: "#timeline",
+              cta: "View Timeline"
             },
             {
               tone: "tone-teal",
-              code: "Journey",
+              code: "Project",
               mark: "03",
-              title: "Experience Timeline",
-              desc: "If the homepage supports applications, hiring, or academic introduction, a timeline is often more effective than many cards.",
-              tags: ["Experience", "Applications / Hiring", "Quick overview"],
-              href: "#timeline",
-              cta: "View Timeline"
+              title: "Transient Fire Suppression System and Intelligent Firefighting Robotics",
+              desc: "Long-term work on robotics for complex environments, from leading the Blue Shark intelligent firefighting robot project to later system-level work on transient fire suppression in confined spaces.",
+              tags: ["System Integration", "Firefighting Robotics", "Technical Lead"],
+              href: "简历文件/CV_xzh-202603.pdf",
+              cta: "Open CV"
             }
           ]
         },
         timeline: {
           kicker: "Timeline",
           title: "Timeline",
-          desc: "This is a lightweight timeline scaffold for a personal homepage. Replace the year, title, and description with your real information.",
+          desc: "This timeline highlights the milestones that best explain how the research path evolved, instead of reproducing the full resume line by line.",
           items: [
-            { date: "2026 / Now", title: "Current Focus", desc: "Describe what you are actively doing now, such as thesis work, research, internship, or job search." },
-            { date: "2025", title: "Representative Outcome", desc: "Use this for the experience you most want people to notice." },
-            { date: "2024", title: "Shift or Skill Growth", desc: "Explain a change in direction, new technical depth, or an important collaboration." },
-            { date: "2023", title: "Starting Point", desc: "Add your earlier academic background or first major project here." }
+            {
+              date: "PhD Stage / Present",
+              title: "PhD Student at Peking University",
+              desc: "Current research centers on integrated sensing and control of miniature permanent-magnet spherical motors, amphibious bio-inspired robotics, and ViDAR multi-sensor fusion SLAM with RL-based active perception."
+            },
+            {
+              date: "2020 - 2022",
+              title: "Intelligent Robotics Institute, BIT",
+              desc: "Worked on an on-chip cell operation and analysis system based on optoelectronic tweezers, covering optical setup, circuit design, upper-computer design, and part of the paper writing process, with IEEE publication output."
+            },
+            {
+              date: "2019 - 2022",
+              title: "National Innovation Project and RoboMaster Practice",
+              desc: "Led the Blue Shark intelligent firefighting robot project and contributed to innovation competitions, patent applications, and RoboMaster as the UAV subgroup leader."
+            },
+            {
+              date: "2018 - 2022",
+              title: "B.Eng. at Beijing Institute of Technology",
+              desc: "Studied in the Xu Teli Honors Program in mechatronics, with systematic training in mathematics, mechanics, circuits, control, and programming."
+            }
           ]
         },
         stack: {
-          kicker: "Stack",
-          title: "Tech Stack",
-          desc: "Keep only the tools and directions that matter most to your current goals.",
+          kicker: "Focus",
+          title: "Research Directions and Capabilities",
+          desc: "Instead of generic buzzwords, this section summarizes the recurring themes and capabilities that appear consistently across the resume materials.",
           groups: [
-            { title: "Research", items: ["Topic A", "Topic B", "Method C", "Academic Writing"] },
-            { title: "Engineering", items: ["Python", "C++", "Git", "Linux"] },
-            { title: "Tools", items: ["PyTorch", "Jupyter", "LaTeX", "Figma"] },
-            { title: "Output", items: ["Project Showcase", "Technical Notes", "Paper Reading", "Public Repos"] }
+            {
+              title: "Research",
+              items: ["Robotic Perception and Control", "Multi-sensor SLAM", "RL-Based Active Perception", "Cross-medium Bio-inspired Robotics"]
+            },
+            {
+              title: "System",
+              items: ["Mechatronic Integration", "Motion Mechanism Analysis", "Planning and Control", "Robot Task Execution"]
+            },
+            {
+              title: "Engineering",
+              items: ["Mechanical Design", "Circuit Design", "Upper-Computer Design", "Experimental Platform Setup"]
+            },
+            {
+              title: "Output",
+              items: ["IEEE Papers", "Patent Applications", "Innovation Competitions", "Research Collaboration"]
+            }
           ]
         },
         contact: {
           kicker: "Contact",
           title: "Contact",
-          desc: "You do not need many contact channels on the homepage. You only need the shortest path to take action.",
-          featureTitle: "Replace these three items first",
-          featureDesc: "Your name, your email, and one primary link. Those are enough for a GitHub profile homepage.",
-          pills: ["Name / Title", "Email", "Primary link"],
+          desc: "These are the most suitable public-facing entry points for a GitHub homepage: email, GitHub, personal website, and the CV file itself.",
+          featureTitle: "Information already filled from your resume materials",
+          featureDesc: "The email address comes from the doctoral CV, while GitHub and the personal homepage link to your current public profile. Google Scholar, ORCID, or publication pages can be added later if needed.",
+          pills: ["Peking University", "xinzhanhua@stu.pku.edu.cn", "GitHub Pages"],
           links: [
+            { label: "Email", value: "xinzhanhua@stu.pku.edu.cn", href: "mailto:xinzhanhua@stu.pku.edu.cn" },
             { label: "GitHub", value: "github.com/xinzhanhua", href: "https://github.com/xinzhanhua" },
-            { label: "Email", value: "your-email@example.com", href: "mailto:your-email@example.com" },
-            { label: "Resume", value: "Replace this with your resume link", href: "#hero" }
+            { label: "Homepage", value: "xinzhanhua.github.io", href: "https://xinzhanhua.github.io/" },
+            { label: "CV", value: "CV_xzh-202603.pdf", href: "简历文件/CV_xzh-202603.pdf" }
           ]
         },
         footer: "© 2026 Xinzhanhua. Built for GitHub Pages."
