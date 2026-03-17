@@ -33,8 +33,7 @@
     .container { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
     .page { padding: 32px 0 56px; }
 
-    .back-link,
-    .button {
+    .back-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -79,19 +78,6 @@
       font-size: 1.04rem;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .button.primary {
-      color: #ffffff;
-      border-color: transparent;
-      background: linear-gradient(135deg, var(--secondary), var(--primary));
-    }
-
     .section { margin-top: 22px; }
     .grid {
       display: grid;
@@ -134,11 +120,6 @@
       border-radius: 24px;
       background: var(--surface);
       box-shadow: var(--shadow);
-    }
-
-    .media-card h2 {
-      margin-bottom: 12px;
-      font-size: 1.08rem;
     }
 
     .media-frame {
@@ -195,12 +176,30 @@
       <section class="hero">
         <span class="eyebrow">Research 02</span>
         <h1>水空跨介质仿生机器人运动机理与控制研究</h1>
-        <p class="lead">该研究对应 CV 中“研究经历”的第二项，面向仿飞鱼式水空跨介质机器人小型化、高机动与跨域连续运动需求，开展混合驱动平台设计、跨介质动力学建模与机载传感器闭环控制研究，并完成完整实验验证。</p>
+        <p class="lead">面向仿飞鱼式水空跨介质机器人小型化、高机动与跨域连续运动需求，开展混合驱动平台设计、跨介质动力学建模与机载传感器闭环控制研究，并完成完整实验验证。</p>
+      </section>
 
-        <div class="hero-actions">
-          <a class="button primary" href="../简历文件/CV_xzh-202603.pdf" target="_blank" rel="noreferrer noopener">查看 CV</a>
-          <a class="button" href="mailto:xinzhanhua@stu.pku.edu.cn">联系我</a>
-        </div>
+      <section class="media-grid section">
+        <article class="media-card">
+          <div class="media-frame">
+            <video id="project-video" controls preload="metadata" playsinline hidden></video>
+            <div class="media-empty" id="project-video-empty"></div>
+          </div>
+        </article>
+
+        <article class="media-card">
+          <div class="media-frame">
+            <img id="project-image-1" alt="Cross-medium robot figure 1" hidden>
+            <div class="media-empty" id="project-image-1-empty"></div>
+          </div>
+        </article>
+
+        <article class="media-card">
+          <div class="media-frame">
+            <img id="project-image-2" alt="Cross-medium robot figure 2" hidden>
+            <div class="media-empty" id="project-image-2-empty"></div>
+          </div>
+        </article>
       </section>
 
       <section class="grid section">
@@ -228,32 +227,6 @@
             <li>机器人实现最高 6.88 BL/s 的稳定表面游动速度和约 5.5 倍体长的出水高度。</li>
             <li>完成从水下待机、姿态调整、跨域跃出到空中加速的完整过程验证。</li>
           </ul>
-        </article>
-      </section>
-
-      <section class="media-grid section">
-        <article class="media-card">
-          <h2>项目视频</h2>
-          <div class="media-frame">
-            <video id="project-video" controls preload="metadata" playsinline hidden></video>
-            <div class="media-empty" id="project-video-empty">视频接口已预留。建议放跨介质跃出、表面游动或整机实验演示视频。</div>
-          </div>
-        </article>
-
-        <article class="media-card">
-          <h2>图片接口 1</h2>
-          <div class="media-frame">
-            <img id="project-image-1" alt="Cross-medium robot figure 1" hidden>
-            <div class="media-empty" id="project-image-1-empty">图片接口已预留。建议放机器人实物图、结构图或推进机构设计图。</div>
-          </div>
-        </article>
-
-        <article class="media-card">
-          <h2>图片接口 2</h2>
-          <div class="media-frame">
-            <img id="project-image-2" alt="Cross-medium robot figure 2" hidden>
-            <div class="media-empty" id="project-image-2-empty">图片接口已预留。建议放跃出序列图、速度曲线或实验结果图。</div>
-          </div>
         </article>
       </section>
     </div>

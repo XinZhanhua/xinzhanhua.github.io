@@ -41,8 +41,7 @@
       padding: 32px 0 56px;
     }
 
-    .back-link,
-    .button {
+    .back-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -87,19 +86,6 @@
       font-size: 1.04rem;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .button.primary {
-      color: #ffffff;
-      border-color: transparent;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-    }
-
     .section { margin-top: 22px; }
     .grid {
       display: grid;
@@ -142,11 +128,6 @@
       border-radius: 24px;
       background: var(--surface);
       box-shadow: var(--shadow);
-    }
-
-    .media-card h2 {
-      margin-bottom: 12px;
-      font-size: 1.08rem;
     }
 
     .media-frame {
@@ -203,12 +184,30 @@
       <section class="hero">
         <span class="eyebrow">Research 01</span>
         <h1>高集成微型永磁球形电机感知与控制研究</h1>
-        <p class="lead">该研究对应 CV 中“研究经历”的第一项，面向微型多自由度永磁球形电机在小型化条件下磁场非线性强、姿态可观测性不足以及闭环控制困难等问题，开展电机结构、磁路布局、感知建模与约束控制一体化研究。</p>
+        <p class="lead">面向微型多自由度永磁球形电机在小型化条件下磁场非线性强、姿态可观测性不足以及闭环控制困难等问题，开展电机结构、磁路布局、感知建模与约束控制一体化研究。</p>
+      </section>
 
-        <div class="hero-actions">
-          <a class="button primary" href="../简历文件/CV_xzh-202603.pdf" target="_blank" rel="noreferrer noopener">查看 CV</a>
-          <a class="button" href="mailto:xinzhanhua@stu.pku.edu.cn">联系我</a>
-        </div>
+      <section class="media-grid section">
+        <article class="media-card">
+          <div class="media-frame">
+            <video id="project-video" controls preload="metadata" playsinline hidden></video>
+            <div class="media-empty" id="project-video-empty"></div>
+          </div>
+        </article>
+
+        <article class="media-card">
+          <div class="media-frame">
+            <img id="project-image-1" alt="Spherical motor figure 1" hidden>
+            <div class="media-empty" id="project-image-1-empty"></div>
+          </div>
+        </article>
+
+        <article class="media-card">
+          <div class="media-frame">
+            <img id="project-image-2" alt="Spherical motor figure 2" hidden>
+            <div class="media-empty" id="project-image-2-empty"></div>
+          </div>
+        </article>
       </section>
 
       <section class="grid section">
@@ -236,32 +235,6 @@
             <li>完成水下仿生鳍负载下的 3-DOF 闭环轨迹跟踪实验。</li>
             <li>验证了微型球形电机在机器人关节与仿生推进场景中的应用潜力。</li>
           </ul>
-        </article>
-      </section>
-
-      <section class="media-grid section">
-        <article class="media-card">
-          <h2>项目视频</h2>
-          <div class="media-frame">
-            <video id="project-video" controls preload="metadata" playsinline hidden></video>
-            <div class="media-empty" id="project-video-empty">视频接口已预留。建议放电机实验演示、闭环轨迹跟踪或控制效果视频。</div>
-          </div>
-        </article>
-
-        <article class="media-card">
-          <h2>图片接口 1</h2>
-          <div class="media-frame">
-            <img id="project-image-1" alt="Spherical motor figure 1" hidden>
-            <div class="media-empty" id="project-image-1-empty">图片接口已预留。建议放电机结构图、磁路布局图或感知框架图。</div>
-          </div>
-        </article>
-
-        <article class="media-card">
-          <h2>图片接口 2</h2>
-          <div class="media-frame">
-            <img id="project-image-2" alt="Spherical motor figure 2" hidden>
-            <div class="media-empty" id="project-image-2-empty">图片接口已预留。建议放实验平台、姿态估计结果图或轨迹跟踪结果图。</div>
-          </div>
         </article>
       </section>
     </div>

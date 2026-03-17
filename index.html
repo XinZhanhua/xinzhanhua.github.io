@@ -487,12 +487,34 @@
       color: #ffffff;
     }
 
-    .card-visual::before,
-    .card-visual::after {
+    .card-visual::before {
       content: "";
       position: absolute;
       border-radius: 999px;
       opacity: 0.6;
+      z-index: 1;
+    }
+
+    .card-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(12, 18, 36, 0.06) 0%, rgba(12, 18, 36, 0.26) 100%);
+      z-index: 1;
+    }
+
+    .visual-cover {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      display: block;
+    }
+
+    .visual-cover[hidden] {
+      display: none;
     }
 
     .tone-cobalt {
@@ -539,7 +561,7 @@
 
     .visual-code {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.25);
@@ -551,7 +573,7 @@
 
     .visual-mark {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       width: 72px;
       height: 72px;
       border-radius: 22px;
@@ -887,6 +909,7 @@
               title: "高集成微型永磁球形电机感知与控制研究",
               desc: "围绕微型多自由度永磁球形电机在小型化条件下的磁场非线性、姿态可观测性不足与闭环控制困难问题，开展结构、感知建模与约束控制一体化研究。",
               tags: ["球形电机", "姿态感知", "约束控制"],
+              cover: "assets/projects/spherical-motor/images/figure-1.png",
               href: "projects/spherical-motor.html",
               cta: "查看详情"
             },
@@ -897,6 +920,7 @@
               title: "水空跨介质仿生机器人运动机理与控制研究",
               desc: "设计微型混合驱动仿生机器鱼平台，研究跨介质运动建模、LOS 引导与逆动力学滑模控制，并完成水下到空中的连续运动验证。",
               tags: ["跨介质机器人", "混合驱动", "运动控制"],
+              cover: "assets/projects/cross-medium-robot/images/figure-1.png",
               href: "projects/cross-medium-robot.html",
               cta: "查看详情"
             },
@@ -907,6 +931,7 @@
               title: "ViDAR 多传感器融合 SLAM 与强化学习主动感知研究",
               desc: "设计 ViDAR 主动感知装置与视觉-惯性-编码器紧耦合里程计 VIEO，并结合 SAC 主动 SLAM 提升大视场下的位姿估计与观测质量。",
               tags: ["ViDAR", "VIEO", "主动 SLAM"],
+              cover: "assets/projects/vidar-slam/images/figure-1.png",
               href: "projects/vidar-slam.html",
               cta: "查看详情"
             }
@@ -955,6 +980,7 @@
               title: "Highly Integrated Miniature Permanent-Magnet Spherical Motor Perception and Control",
               desc: "This work studies structure design, perception modeling, and constrained control for a miniature multi-DOF permanent-magnet spherical motor under strong magnetic nonlinearity and limited observability.",
               tags: ["Spherical Motor", "Attitude Sensing", "Constrained Control"],
+              cover: "assets/projects/spherical-motor/images/figure-1.png",
               href: "projects/spherical-motor.html",
               cta: "View Details"
             },
@@ -965,6 +991,7 @@
               title: "Motion Mechanisms and Control of Cross-Medium Bio-Inspired Robots",
               desc: "This work develops a miniature hybrid-driven bio-inspired robotic fish and studies cross-medium modeling, LOS guidance, and inverse-dynamics sliding-mode control for continuous water-air locomotion.",
               tags: ["Cross-medium Robotics", "Hybrid Drive", "Motion Control"],
+              cover: "assets/projects/cross-medium-robot/images/figure-1.png",
               href: "projects/cross-medium-robot.html",
               cta: "View Details"
             },
@@ -975,6 +1002,7 @@
               title: "ViDAR Multi-Sensor SLAM and Reinforcement-Learning-Based Active Perception",
               desc: "This work builds a ViDAR device and a tightly coupled visual-inertial-encoder odometry pipeline, then combines SAC-based active SLAM to improve observation quality and state estimation accuracy.",
               tags: ["ViDAR", "VIEO", "Active SLAM"],
+              cover: "assets/projects/vidar-slam/images/figure-1.png",
               href: "projects/vidar-slam.html",
               cta: "View Details"
             }
@@ -1053,9 +1081,13 @@
       return items.map((item) => {
         const isExternal = /^(https?:|mailto:)/.test(item.href) || item.href.endsWith(".pdf");
         const target = isExternal ? ' target="_blank" rel="noreferrer noopener"' : "";
+        const cover = item.cover
+          ? '<img class="visual-cover" src="' + item.cover + '" alt="' + item.title + ' cover" hidden onload="this.hidden=false" onerror="this.remove()">'
+          : "";
         return (
           '<article class="panel content-card">' +
             '<div class="card-visual ' + item.tone + '">' +
+              cover +
               '<span class="visual-code">' + item.code + "</span>" +
               '<span class="visual-mark">' + item.mark + "</span>" +
             "</div>" +
